@@ -1,1 +1,1 @@
-web: java target\MovieDBApp-0.0.1-SNAPSHOT.jar
+web: java -cp target/MovieDBApp-0.0.1-SNAPSHOT.jar MdbApp.java
