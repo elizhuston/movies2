@@ -7,8 +7,10 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+		<config>java:mdb.webapp.movieDbApplication.Main</config>
 	</configs>
 	<autoconfigs>
+		<config>java:mdb.webapp.movieDbApplication.MdbAppJsonController</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
