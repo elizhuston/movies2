@@ -1,1 +1,0 @@
-web: java target/MovieDBApp-0.0.1-SNAPSHOT.jar
