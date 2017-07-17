@@ -1,1 +1,1 @@
-web: java -jar target/MovieDbApp-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT
+web: java  -Dserver.port=$PORT -jar target/MovieDbApp-0.0.1-SNAPSHOT.jar 
