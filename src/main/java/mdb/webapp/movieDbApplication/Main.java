@@ -3,15 +3,21 @@ package mdb.webapp.movieDbApplication;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -32,7 +38,16 @@ public class Main {
 		SpringApplication.run(Main.class, args);
 	}
 
-	  
+	@Configuration
+	public class DatabaseConfig {
+	    @Bean
+	    @Primary
+	    @ConfigurationProperties(prefix = "spring.datasource")
+	    public DataSource dataSource() {
+	        return DataSourceBuilder.create().build();
+	    }
+	}
+	
 	@Bean
 	public Docket swaggerSettings() {
 		return new Docket(DocumentationType.SWAGGER_2)

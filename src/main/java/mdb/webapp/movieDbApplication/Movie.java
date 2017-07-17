@@ -3,7 +3,6 @@ package mdb.webapp.movieDbApplication;
 
 import java.io.Serializable;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +13,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.h2.util.New;
 import org.jboss.logging.Message;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Persistable;
@@ -45,32 +43,27 @@ public class Movie implements Serializable {
 	@GeneratedValue
 	private int id;
 
-	@Column(unique=true)
-	@NotNull(
-	        message = "Title is required to add a movie.",
-	        groups = {New.class}
-	    )
-	@Size(min=1)
+	@Column(unique = true)
+	@NotNull(message = "Title is required to add a movie.")
+	@Size(min = 1)
 	private String title;
 
-	@NotNull(
-	        message = "Released Year is required to add a movie.",
-	        groups = {New.class}
-	    )
+	@NotNull(message = "Released Year is required to add a movie.")
 	@Min(1900)
 	@Max(2018)
 	private String releaseDate;
-	
+
 	private String genre;
 
-	// I tried the mappedBy here - it only works with the first many-to-many relationship to Person and we have 3
+	// I tried the mappedBy here - it only works with the first many-to-many
+	// relationship to Person and we have 3
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "directorsId")
 	private List<Person> directors;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "actorsId")
-	private List<Person > actors;
+	private List<Person> actors;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "authorsId")
