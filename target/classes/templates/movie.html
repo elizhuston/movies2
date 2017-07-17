@@ -1,0 +1,17 @@
+<html>
+<body>
+
+Movie Title: {{movie.title}}
+Release On: {{movie.releaseDate}} 
+Genre: {{movie.genre}}
+<ul>
+{{#movie.director}}
+   <li> Director: {{movie.director.name}} </li>
+{{/movie.director}}
+</ul>
+Actors: {{movie.actors}}
+Authors: {{movie.authors}}
+
+</body>
+</html>
+

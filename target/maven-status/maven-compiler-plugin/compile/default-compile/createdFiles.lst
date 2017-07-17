@@ -1,0 +1,6 @@
+mdb\webapp\movieDbApplication\Movie.class
+mdb\webapp\movieDbApplication\MovieRepository.class
+mdb\webapp\movieDbApplication\Person.class
+mdb\webapp\movieDbApplication\MdbAppJsonController.class
+mdb\webapp\movieDbApplication\PersonRepository.class
+mdb\webapp\movieDbApplication\Main.class
